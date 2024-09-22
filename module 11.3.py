@@ -6,6 +6,8 @@ def introspection_info(obj):
     info_about_obj = {'Тип объекта': type(obj),
                       'Атрибуты объекта': [attr for attr in dir(obj) if
                                            not callable(getattr(obj, attr)) and not attr.startswith("__")],
+                      'Магические атрибуты объекта': [attr for attr in dir(obj) if
+                                           not callable(getattr(obj, attr)) and attr.startswith("__")],
                       'Методы объекта': [method for method in dir(obj) if
                                          callable(getattr(obj, method)) and not method.startswith("__")],
                       'Магические методы объекта': [method for method in dir(obj) if
